@@ -25,6 +25,9 @@ bin/kafka-topics.sh --create -zookeeper localhost:2181 --replication 1 --partiti
 '''
 bin/kafka-topics.sh --list -zookeeper localhost:2181
 '''
+#Edit file consumer.py at line 12
+#consumer = KafkaConsumer('filebeat', bootstrap_servers=['192.168.X.X:9092'], auto_offset_reset='latest', enable_auto_commit=True)
+#Change 'filebeat' to your topic and value bootstrap_servers = YOUR_IP:9092
 #Run consumer.py to format log and push log from topic's kafka to elasticsearch
 '''
 cd kafka
