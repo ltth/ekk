@@ -24,20 +24,25 @@ cp elasticsearch.yml /etc/elasticsearch/
 cp kibana.yml /etc/kibana/
 
 #Install Kafka
-wget http://mirror.downloadvn.com/apache/kafka/2.6.0/kafka_2.13-2.6.0.tgz
-tar -zxvf kafka_2.13-2.6.0.tgz
-mv kafka_2.13-2.6.0 kafka
+#wget http://mirror.downloadvn.com/apache/kafka/2.6.0/kafka_2.13-2.6.0.tgz
+#tar -zxvf kafka_2.13-2.6.0.tgz
+#mv kafka_2.13-2.6.0 kafka
 #mv kafka/config/server.properties kafka/config/server.properties.bak
 #cp server.properties kafka/config/
 cp zookeeper.service /etc/systemd/system/
 cp kafka.service /etc/systemd/system/
 systemctl daemon-reload
 
-#Enable EKK
+#Enable and restart EKK
 systemctl enable elasticsearch
 systemctl enable kibana
 systemctl enable zookeeper
 systemctl enable kafka
+
+systemctl start elasticsearch
+systemctl start kibana
+systemctl start zookeeper
+systemctl start kafka
 
 #Open port firewall
 firewall-cmd --add-port=80/tcp
