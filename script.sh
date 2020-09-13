@@ -32,6 +32,7 @@ cp kibana.yml /etc/kibana/
 cp zookeeper.service /etc/systemd/system/
 cp kafka.service /etc/systemd/system/
 systemctl daemon-reload
+cp consumer.py /kafka
 
 #Enable and restart EKK
 systemctl enable elasticsearch
