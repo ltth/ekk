@@ -1,0 +1,13 @@
+[Unit]
+Requires=zookeeper.service
+After=zookeeper.service
+
+[Service]
+Type=simple
+User=root
+ExecStart=/bin/sh -c '/root/ekk/kafka/bin/kafka-server-start.sh /root/ekk/kafka/config/server.properties'
+ExecStop=/root/ekk/kafka/bin/kafka-server-stop.sh
+Restart=on-failure
+
+[Install]
+WantedBy=multi-user.target
