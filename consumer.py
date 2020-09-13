@@ -9,7 +9,7 @@ from kafka import KafkaConsumer
 from elasticsearch import Elasticsearch
 import re, datetime
 
-consumer = KafkaConsumer('filebeat', bootstrap_servers=['192.168.253.167:9092'], auto_offset_reset='latest', enable_auto_commit=True)
+consumer = KafkaConsumer('filebeat', bootstrap_servers=['192.168.X.X:9092'], auto_offset_reset='latest', enable_auto_commit=True)
 
 regexAllBasicInfo = '^\[(.*?)\].*client\s([a-zA-Z0-9\.]*):(\d*).*file\s\"(.*)\"\]\s\[line\s\"(\d*)\"\]\s\[id\s\"(\d*)\"\]\s\[msg\s\"(.*?)\"'
 regexDataAndSeverity = 'data\s\"(.*)\"\]\s\[severity\s\"(.*?)\"'
