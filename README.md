@@ -6,8 +6,8 @@ source script.sh
 '''
 #Edit file ekk/kafka/config/server.properties:
 #listeners = PLAINTEXT://your.host.name:9092
-#Thay your.host.name = your IP address
-#restart kafka
+#Change your.host.name = your IP address
+#Restart kafka
 '''
 systemctl restart kafka
 '''
