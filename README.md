@@ -1,5 +1,5 @@
 # Install Elasticsearch + Kibana + Kafka on Centos 
-# require: Install git, clone repo ekk and run file script to finish install EKK
+# Require: Install git, clone repo ekk and run file script to finish install EKK
 ```
 yum install git -y
 
