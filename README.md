@@ -1,13 +1,13 @@
 # Install Elasticsearch + Kibana + Kafka on Centos 
 # require: Install git, clone repo ekk and run file script to finish install EKK
-'''
+```
 yum install git -y
 
 git clone https://github.com/ltth/ekk.git
 
 source script.sh
+```
 
-'''
 # Config Kafka 
 
 #Edit file ekk/kafka/config/server.properties:
@@ -18,19 +18,17 @@ source script.sh
 
 # Restart kafka
 
-'''
+```
 
 systemctl restart kafka
-
-'''
+```
 
 #Use netstat to check active services 
 
-'''
+```
 
 netstat -nltp
-
-'''
+```
 
 #Result return open ports: 5601, 9200, 9092, 2181
 
@@ -38,19 +36,19 @@ netstat -nltp
 
 #Exam: Create a topic "filebeat" to test
 
-'''
+```
 
 bin/kafka-topics.sh --create --zookeeper localhost:2181 --replication-f 1 --partitions 1 --topic filebeat
 
-'''
+```
 
 #List topics created
 
-'''
+```
 
 bin/kafka-topics.sh --list -zookeeper localhost:2181
 
-'''
+```
 
 #Edit file consumer.py at line 12
 
@@ -60,13 +58,11 @@ bin/kafka-topics.sh --list -zookeeper localhost:2181
 
 #Run consumer.py to format log and push log from topic's kafka to elasticsearch
 
-'''
-
+```
 cd kafka
 
 python3 consumer.py
-
-'''
+```
 
 #On browser, access kibana web : http://YOUR_IP:5061 
 
