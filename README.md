@@ -1,5 +1,5 @@
 # Install Elasticsearch + Kibana + Kafka on Centos 
-
+# require: Install git, clone repo ekk and run file script to finish install EKK
 '''
 yum install git -y
 
@@ -8,6 +8,7 @@ git clone https://github.com/ltth/ekk.git
 source script.sh
 
 '''
+# Config Kafka 
 
 #Edit file ekk/kafka/config/server.properties:
 
@@ -15,7 +16,7 @@ source script.sh
 
 #Change your.host.name = your IP address
 
-#Restart kafka
+# Restart kafka
 
 '''
 
@@ -35,11 +36,11 @@ netstat -nltp
 
 
 
-#Create a topic "filebeat" to test
+#Exam: Create a topic "filebeat" to test
 
 '''
 
-bin/kafka-topics.sh --create -zookeeper localhost:2181 --replication 1 --partitions 1 --topic filebeat
+bin/kafka-topics.sh --create --zookeeper localhost:2181 --replication-f 1 --partitions 1 --topic filebeat
 
 '''
 
