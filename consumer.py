@@ -24,7 +24,7 @@ es = Elasticsearch([{'host': 'localhost', 'port': 9200}])
 
 for log in consumer:
 	log = log.value.decode()
-	if " Modsecurity: " not in log:
+	if " ModSecurity: " not in log:
 		continue
 
 	basicInfo = re.findall(regexAllBasicInfo, log)[0]
