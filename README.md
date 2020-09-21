@@ -1,3 +1,12 @@
+# Log collection system, include:
+Fielbeat :is installed on agents to send logs to Kafka
+
+Kafka: recieve logs from Filebeat and push it to Elasticsearch
+
+Elasticsearch indexes data recieved to display on Kibana
+
+Kibana display indexes, create dashboard
+
 # Install Elasticsearch + Kibana + Kafka on Centos 
 # Require: Install git, clone repo ekk and run file script to finish install EKK
 ```
