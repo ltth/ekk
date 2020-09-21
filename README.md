@@ -12,7 +12,7 @@ source script.sh
 
 Edit file ekk/kafka/config/server.properties:
 
-listeners = PLAINTEXT://your.host.name:9092
+listeners = PLAINTEXT://```your.host.name```:9092
 
 Change your.host.name = your IP address
 
