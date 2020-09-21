@@ -1,6 +1,6 @@
 #!/bin/bash
 
-#Prepair
+#Updates and Install necessary packages
 yum update -y
 yum install wget nano net-tools nc -y
 yum install java-1.8.0-openjdk -y
@@ -34,7 +34,7 @@ cp kafka.service /etc/systemd/system/
 systemctl daemon-reload
 cp consumer.py /kafka
 
-#Enable and restart EKK
+#Enable and start EKK
 systemctl enable elasticsearch
 systemctl enable kibana
 systemctl enable zookeeper
@@ -45,10 +45,3 @@ systemctl start kibana
 systemctl start zookeeper
 systemctl start kafka
 
-#Open port firewall
-firewall-cmd --add-port=80/tcp
-firewall-cmd --add-port=443/tcp
-firewall-cmd --add-port=5601/tcp
-firewall-cmd --add-port=9092/tcp
-firewall-cmd --reload
-iptables -F 
