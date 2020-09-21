@@ -14,10 +14,13 @@ chmod +x /etc/profile.d/java8.sh
 source /etc/profile.d/java8.sh
 
 #Install Elasticsearch and Kibana
+#Prepair: Create repo and import GPG-Key 
 cp elk.repo /etc/yum.repos.d/
 rpm --import https://artifacts.elastic.co/GPG-KEY-elasticsearch
+#Install Elasticserch and Kibana
 yum install elasticsearch -y
 yum install kibana -y
+#Backup and edit Config Elasticserch, Kibana
 mv /etc/elasticsearch/elasticsearch.yml /etc/elasticsearch/elasticsearch.yml.bak
 mv /etc/kibana/kibana.yml /etc/kibana/kibana.yml.bak
 cp elasticsearch.yml /etc/elasticsearch/
@@ -27,11 +30,12 @@ cp kibana.yml /etc/kibana/
 #wget http://mirror.downloadvn.com/apache/kafka/2.6.0/kafka_2.13-2.6.0.tgz
 #tar -zxvf kafka_2.13-2.6.0.tgz
 #mv kafka_2.13-2.6.0 kafka
-#mv kafka/config/server.properties kafka/config/server.properties.bak
-#cp server.properties kafka/config/
+
+#Create zookeeper  and Kafka service 
 cp zookeeper.service /etc/systemd/system/
 cp kafka.service /etc/systemd/system/
 systemctl daemon-reload
+#consumer.py use to push log from topic kafka to elasticsearch
 cp consumer.py /kafka
 
 #Enable and start EKK
