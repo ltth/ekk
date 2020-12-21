@@ -44,7 +44,7 @@ Result return open ports: 5601, 9200, 9092, 2181
 Exam: Create a topic "filebeat" to test
 
 ```
-bin/kafka-topics.sh --create --zookeeper localhost:2181 --replication-f 1 --partitions 1 --topic filebeat
+bin/kafka-topics.sh --create --zookeeper localhost:2181 --replication-factor 1 --partitions 1 --topic filebeat
 
 ```
 
