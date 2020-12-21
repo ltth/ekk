@@ -18,15 +18,15 @@ output.logstash:
   
  ----------config filebeat push log to kafka---------- 
  
-#output.kafka:
- # codec.format:
-  #  string: '%{[message]}'
-  #hosts: ["192.168.253.224:9092"]
-  #topic: filebeat
-  #enable: true
-  #partition.round_robin:
-   # reachable_only: false
-  #required_acks: 1
-  #compression: gzip
-  #max_message_bytes: 1000000
+output.kafka:
+  codec.format:
+    string: '%{[message]}'
+  hosts: ["192.168.253.224:9092"]
+  topic: filebeat
+  enable: true
+  partition.round_robin:
+    reachable_only: false
+  required_acks: 1
+  compression: gzip
+  max_message_bytes: 1000000
 
